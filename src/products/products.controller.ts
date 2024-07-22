@@ -21,19 +21,18 @@ export class ProductsController {
   }
 
   @Get(':id')
-  getProduct(@Param('id') id: number) {
+  getProduct(@Param('id') id: string) {
     return this.productsService.getProductById(id);
   }
 
   @Post()
   createProduct(@Body() createProductDto: CreateProductDto) {
-    console.log(createProductDto instanceof CreateProductDto);
     return this.productsService.createProduct(createProductDto);
   }
 
   @Patch(':id')
   updateProduct(
-    @Param('id') id: number,
+    @Param('id') id: string,
     @Body() updateProductDto: UpdateProductDto,
   ) {
     return this.productsService.updateProduct(id, updateProductDto);
